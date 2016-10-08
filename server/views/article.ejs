@@ -1,0 +1,16 @@
+<%- include header%>
+<% if(user) { %>
+  <span><a href="/edit/<%= post._id %>">编辑</a></span>
+  <span><a href="/remove/<%= post._id %>">删除</a></span>
+<% } %>
+<p class="info">
+  <% post.tags.forEach(function(tag,index) { %>
+    <% if(tag) { %>
+      <span class="tag"><%= tag%></span>
+    <% } %>
+  <% }) %>
+  | <%= post.pv%> VIEWER
+  | TIME: <%= post.time.day %>
+</p>
+<p><%- post.post %></p>
+<%- include footer %>
